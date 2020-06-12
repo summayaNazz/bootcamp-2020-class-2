@@ -13,13 +13,12 @@ jobs:
   # This workflow contains a single job called "build"
  build:
 # The type of runner that the job will run on
-runs-on: ubuntu-latest
+   runs-on: ubuntu-latest
 
 # Steps represent a sequence of tasks that will be executed as part of the job
 steps:
 # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
 - uses: actions/checkout@v2
-
 - name: Installing Node
 - uses: actions/setup-node@v2-beta
   with:
@@ -31,10 +30,10 @@ steps:
     cmd: install  #npm install/ yarn install
 
 - name: Creating build
-- run: yarn build  
+  run: yarn build  
     
 - name: installing surge
-- run: npm install -g surge
+  run: npm install -g surge
     
 - name: deploying on surge
-- run: surge ./build bootcamp-2020-class-2.surge.sh --token ${{ secrets.SURGE_TOKEN }} 
+  run: surge ./build bootcamp-2020-class-2.surge.sh --token ${{ secrets.SURGE_TOKEN }} 
